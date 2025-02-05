@@ -64,4 +64,8 @@ public class AdminPage extends BasePage {
         driver.findElement(By.xpath("//label[@class='oxd-label' and text() = '"+label+"']/../..//i")).click();
         driver.findElement(By.xpath("//div[@role='option']/span[text()='"+ option +"']/..")).click();
     }
+
+    public void GetRecords() {
+
+    }
 }

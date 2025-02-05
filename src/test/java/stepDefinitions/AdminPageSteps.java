@@ -1,11 +1,15 @@
 package stepDefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import testPages.AdminPage;
+
+import java.util.List;
+import java.util.Map;
 
 public class AdminPageSteps {
 
@@ -51,6 +55,15 @@ public class AdminPageSteps {
     }
 
     @Then("user should see the record with following details")
-    public void userShouldSeeTheRecordWithFollowingDetails() {
+    public void userShouldSeeTheRecordWithFollowingDetails(DataTable table) {
+        List<Map<String, String>> rows = table.asMaps(String.class, String.class);
+        for(Map<String, String> columns : rows){
+            String un = columns.get("Username");
+            String ur = columns.get("User Role");
+            String en = columns.get("Employee Name");
+            String st = columns.get("Status");
+        }
+
+        adminPage.GetRecords();
     }
 }
