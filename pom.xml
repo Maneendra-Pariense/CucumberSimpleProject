@@ -196,55 +196,11 @@
 								<include>**/*Runner.java</include>
 							</includes>
 							<parallel>methods</parallel>
-							<threadCount>4</threadCount>
+							<threadCount>2</threadCount>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-			<!-- 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.22.0</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>integration-test</goal>
-							<goal>verify</goal>
-						</goals>
-						<configuration>
-							<includes>
-								<include>**/*Runner.java</include>
-							</includes>
-							<parallel>methods</parallel>
-							<threadCount>4</threadCount>							
-						</configuration>
-					</execution>
-				</executions>
-
-			</plugin> -->
-			<!--			<plugin>-->
-			<!--				<groupId>tech.grasshopper</groupId>-->
-			<!--				<artifactId>cucumber-pdf-plugin</artifactId>-->
-			<!--				<version>1.14.0</version>-->
-			<!--				<executions>-->
-			<!--					<execution>-->
-			<!--						<id>report</id>-->
-			<!--						<phase>post-integration-test</phase>-->
-			<!--						<goals>-->
-			<!--							<goal>pdfreport</goal>-->
-			<!--						</goals>-->
-			<!--					</execution>-->
-			<!--				</executions>-->
-			<!--				<configuration>-->
-			<!--
-			<cucumberPdfReportDirectory>${project.build.directory}/test-out/</cucumberPdfReportDirectory>-->
-			<!--					<title>Title</title>-->
-			<!--
-			<cucumberPdfReportDirectoryTimeStamp>${DTimeStamp}</cucumberPdfReportDirectoryTimeStamp>-->
-			<!--
-			<cucumberJsonReportDirectory>${project.build.directory}/cucumber/report.json</cucumberJsonReportDirectory>-->
-			<!--				</configuration>-->
-			<!--			</plugin>-->
 
 		</plugins>
 	</build>

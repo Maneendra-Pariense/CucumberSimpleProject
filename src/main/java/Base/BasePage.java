@@ -9,6 +9,8 @@ import java.util.Properties;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter;
+import gherkin.formatter.model.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -16,20 +18,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.io.FileHandler;
+import tech.grasshopper.reporter.ExtentExcelCucumberReporter;
+import tech.grasshopper.reporter.ExtentPDFReporter;
 
 import java.time.Duration;
 
 public class BasePage {
 	public static ThreadLocal<WebDriver> _driver = new ThreadLocal<>();
-//	public static WebDriver driver;
 	public static Properties prop;
-	public static ExtentTest test;
-	public static ExtentReports extent;
-	public static String testReportTimeStamp;
-	public static String oldFeatureName = null;
-	public static String newFeatureName;
-	public static String scenarioName;
-
 
 	public BasePage() {
 		try {
@@ -66,7 +62,7 @@ public class BasePage {
 	
 	public void TearDown() {
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,20 +71,7 @@ public class BasePage {
 		
 	}
 
-	public static String takeScreenshotAtEndOfTest() throws IOException {
-		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-		TakesScreenshot ts = (TakesScreenshot) _driver;
-
-//		byte[] src = ts.getScreenshotAs(OutputType.BYTES);
-//		scenario.attach(src, "image/png", "screenshot");
-//		TakesScreenshot ts = (TakesScreenshot)driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		String destination = System.getProperty("user.dir") + "/target/extent-Reports/screenshot/" +  dateName
-				+ ".png";
-		File finalDestination = new File(destination);
-		FileHandler.copy(source, finalDestination);
-		return destination;
+	public String takeScreenshotAtEndOfTest() throws IOException {
+		return ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BASE64);
 	}
-
-
 }

@@ -15,7 +15,15 @@ public class TestPage  extends BasePage{
 	
 	@FindBy(name = "q")
 	public WebElement search;
-	
+
+	@FindBy(name = "username")
+	public WebElement username;
+
+	@FindBy(name = "password")
+	public WebElement password;
+
+	@FindBy(xpath = "//button[@type='submit']")
+	public WebElement loginButton;
 	
 	
 	public TestPage() {
@@ -33,6 +41,12 @@ public class TestPage  extends BasePage{
 	
 	public void EnterInSearch(String text) {
 		search.sendKeys("Maneendra");
+	}
+
+	public void DoLogin(String un, String pw){
+		username.sendKeys(un);
+		password.sendKeys(pw);
+		loginButton.click();
 	}
 
 }
