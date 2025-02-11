@@ -1,9 +1,10 @@
-@Admin
+#@Admin @hero
+
 Feature: Admin page validations
 
   Background:
       Given user logged in to the application with username "Admin" and password "admin123"
-
+ @villaian
   Scenario: Validate search System Users should show proper results
     Given user is on "Admin" Page
     When user enters Username as "Admin"

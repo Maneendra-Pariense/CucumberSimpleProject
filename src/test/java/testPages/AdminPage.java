@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class AdminPage extends BasePage {
 
     private WebDriver driver;
@@ -66,6 +68,19 @@ public class AdminPage extends BasePage {
     }
 
     public void GetRecords() {
+        WebElement table = driver.findElement(By.className("oxd-table"));
+        WebElement header = table.findElement(By.className("oxd-table-header"));
+        WebElement body = table.findElement(By.className("oxd-table-body"));
+        List<WebElement> columnHeaders = header.findElements(By.xpath(".//div[@role = 'columnheader']"));
+        System.out.println("column headers count: " + columnHeaders.size());
+//        for (WebElement columnheader :columnHeaders
+//             ) {
+//            System.out.println("column header " + header.getText());
+//
+//        }
+        for(int i = 0; i< columnHeaders.size(); i++){
+            System.out.println("column header " + columnHeaders.get(i).getText());
+        }
 
     }
 }

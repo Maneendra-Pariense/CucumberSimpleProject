@@ -11,7 +11,7 @@ import static io.cucumber.junit.platform.engine.Constants.EXECUTION_MODE_FEATURE
 
 @Suite
 @IncludeEngines("cucumber")
-@IncludeTags("PIM")
+@IncludeTags("villaian")
 @SelectClasspathResource("features")
 @SelectPackages("stepDefinitions")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")

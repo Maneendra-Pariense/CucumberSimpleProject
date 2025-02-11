@@ -56,7 +56,7 @@ public class BasePage {
 		getDriver();
 		getDriver().get(prop.getProperty("url"));
 		getDriver().manage().window().maximize();
-		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		
 	}
 	

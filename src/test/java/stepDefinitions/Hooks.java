@@ -7,7 +7,13 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import java.util.Collection;
+import java.util.List;
+
+
 public class Hooks extends BasePage {
+
+
     @Before
     public void BeforeScenario(Scenario scenario) {
     	Setup();
@@ -15,6 +21,7 @@ public class Hooks extends BasePage {
 
     @After()
     public void afterScenario(Scenario scenario){
+        Collection<String> tags = scenario.getSourceTagNames();
         if (scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
