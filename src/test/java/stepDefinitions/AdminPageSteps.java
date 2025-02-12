@@ -63,7 +63,14 @@ public class AdminPageSteps {
             String en = columns.get("Employee Name");
             String st = columns.get("Status");
         }
+        adminPage.GetRecords("Username", 1);
 
-        adminPage.GetRecords();
+
+    }
+
+    @Then("user should see the record with {string} {string}")
+    public void userShouldSeeTheRecordWith(String columnName, String columnValue) {
+        String actulaValue = adminPage.GetRecords(columnName, 1);
+        Assert.assertEquals(actulaValue, columnValue);
     }
 }

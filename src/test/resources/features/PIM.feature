@@ -18,4 +18,4 @@ Feature: Validation of PIM scenarios
       When user clicks on Employee List tab
         And user enters Employee Name as "Maneendra"
         And user clicks on Search button
-      Then user should see the record with Id "1111"
+      Then user should see the record with "Id" "1111"
